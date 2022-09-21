@@ -7,25 +7,39 @@
 
 let x = 200;
 let y =200; 
+let dx = 200;
+let dy = 200;
+
 let mouseSize = 100;
 let mouseSpeed = 5;
-
 let img;
+let img2;
+let cheeseSize;
+let cheeseSpeed;
+
+
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   img = loadImage("cheese.png");
+  img2 = loadImage("mouse.png");
 
 }
 
 function draw() {
   background("white");
   cheese();
+  mouse();
   handlekeys();
 }
 
-function cheese() {
-  image(img, x, y, mouseSize, mouseSize);
+function cheese(){
+  image(img, dx, dy, cheeseSize, cheeseSize);
+
+}
+function mouse() {
+  image(img2, x, y, mouseSize, mouseSize);
 }
 
 function handlekeys() {
@@ -42,3 +56,4 @@ function handlekeys() {
     x -= mouseSpeed;
   }
 }
+
