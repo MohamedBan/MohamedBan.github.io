@@ -7,15 +7,13 @@
 
 let x = 200;
 let y =200; 
-let dx = 200;
-let dy = 200;
 
 let mouseSize = 100;
 let mouseSpeed = 5;
 let img;
 let img2;
-let cheeseSize;
-let cheeseSpeed;
+let cheeseSize = 100;
+
 
 
 
@@ -35,7 +33,8 @@ function draw() {
 }
 
 function cheese(){
-  image(img, dx, dy, cheeseSize, cheeseSize);
+  image(img, mouseX, mouseY, cheeseSize, cheeseSize);
+  imageMode(CENTER);
 
 }
 function mouse() {
@@ -57,3 +56,7 @@ function handlekeys() {
   }
 }
 
+function handleMouse() {
+
+
+}
