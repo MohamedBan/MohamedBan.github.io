@@ -8,9 +8,8 @@
 let x = 200;
 let y =200;
 let cheeseSize = 100;
-let cheeseSpeed = 5;
 let mouseSize = 100;
-let mouseSpeed = 5;
+let mouseSpeed = 30;
 let img;
 let img2;
 
@@ -44,25 +43,21 @@ function mouse() {
 
 function handlekeys() {
   if (keyIsDown(87)) {
-    y -= cheeseSpeed;
+    y -= mouseSpeed;
   }
   if (keyIsDown(83)){
-    y += cheeseSpeed;
+    y += mouseSpeed;
   }
   if (keyIsDown(68)) {
-    x += cheeseSpeed;
+    x += mouseSpeed;
   }
   if (keyIsDown(65)) {
-    x -= cheeseSpeed;
+    x -= mouseSpeed;
   }
 }
 
 
-function handleMouse() {
-
-  ()
-}
 
 
 
-}
+
