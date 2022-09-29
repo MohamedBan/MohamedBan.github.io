@@ -16,8 +16,8 @@ let img2;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  img = loadImage("cheese.png");
-  img2 = loadImage("mouse.png");
+  img = loadImage("cheese1.png");
+  img2 = loadImage("mouse1.png");
 
 }
 
