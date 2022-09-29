@@ -56,6 +56,12 @@ function handlekeys() {
   }
 }
 
+function detectCollision(){
+
+  
+
+}
+
 
 
 
