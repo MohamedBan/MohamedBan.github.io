@@ -9,7 +9,7 @@ let x = 200;
 let y =200;
 let cheeseSize = 100;
 let mouseSize = 100;
-let mouseSpeed = 30;
+let mouseSpeed = 90;
 let img;
 let img2;
 
@@ -58,7 +58,8 @@ function handlekeys() {
 
 function detectCollision(){
 
-  
+  mouseX >= left && mouseX <= right &&
+    mouseY >= top && mouseY <= bottom;
 
 }
 
