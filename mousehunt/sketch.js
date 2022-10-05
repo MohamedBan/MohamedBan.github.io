@@ -9,9 +9,17 @@ let x = 200;
 let y =200;
 let cheeseSize = 100;
 let mouseSize = 100;
-let mouseSpeed = 90;
+let mouseSpeed = 10;
 let img;
 let img2;
+let hit = false;
+let state = "start";
+let cheeseImg;
+
+
+function preload() {
+  cheeseImg = loadImage("cheeseScreen.jpg");
+}
 
 
 function setup() {
@@ -20,12 +28,26 @@ function setup() {
   img2 = loadImage("mouse1.png");
 
 }
+if (state ==="start") {
+  image(cheeseImg, 0, 0, width, height);
+}
 
 function draw() {
-  background("white");
+  
+  
+  mouse();
+  hit = collideRectRect(x , y, mouseSize, mouseSize, mouseX, mouseY, cheeseSize, cheeseSize);
+
+  if (hit) {
+    img.remove();
+
+  }
+
   cheese();
   mouse();
   handlekeys();
+  
+
 }
 
 
@@ -56,12 +78,7 @@ function handlekeys() {
   }
 }
 
-function detectCollision(){
 
-  mouseX >= left && mouseX <= right &&
-    mouseY >= top && mouseY <= bottom;
-
-}
 
 
 
