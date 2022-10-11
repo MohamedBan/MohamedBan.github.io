@@ -13,7 +13,8 @@ let mouseSpeed = 10;
 let img;
 let img2;
 let hit = false;
-
+let img3;
+let state = "false";
 
 
 
@@ -21,11 +22,22 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   img = loadImage("cheese1.png");
   img2 = loadImage("mouse1.png");
+  img3 = loadImage("gameOver.jpg");
+
 }
 
 
 
 function draw() {
+  if (state === "false") {
+    background("white");
+  }
+  if (state === "true") {
+    end();
+  }
+  mouse();
+  
+  
   
   
   
@@ -33,6 +45,7 @@ function draw() {
 
   if (hit) {
     img.remove();
+    state = "true";
 
   }
 
@@ -49,6 +62,11 @@ function draw() {
 function cheese(){
   image(img, mouseX, mouseY, cheeseSize, cheeseSize);
   imageMode(CENTER);
+
+}
+function end() {
+  image(img3, windowWidth/2, windowHeight/2, windowWidth, windowHeight);
+  
 
 }
 function mouse() {
