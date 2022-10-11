@@ -13,29 +13,22 @@ let mouseSpeed = 10;
 let img;
 let img2;
 let hit = false;
-let state = "start";
-let cheeseImg;
 
 
-function preload() {
-  cheeseImg = loadImage("cheeseScreen.jpg");
-}
 
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   img = loadImage("cheese1.png");
   img2 = loadImage("mouse1.png");
+}
 
-}
-if (state ==="start") {
-  image(cheeseImg, 0, 0, width, height);
-}
+
 
 function draw() {
   
   
-  mouse();
+  
   hit = collideRectRect(x , y, mouseSize, mouseSize, mouseX, mouseY, cheeseSize, cheeseSize);
 
   if (hit) {
