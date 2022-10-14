@@ -42,7 +42,7 @@ function draw() {
   if (state === "true") {
     end();
     sound.play();
-    
+    sound.stop();
     startScreen();
   }
   
