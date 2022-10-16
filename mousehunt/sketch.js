@@ -17,7 +17,8 @@ let img3;
 let state = "false";
 let sound;
 let img4;
-
+let img5;
+let time = 2000;
 
 
 function setup() {
@@ -26,6 +27,7 @@ function setup() {
   img2 = loadImage("mouse5.png");
   img3 = loadImage("gameOver.jpg");
   img4 = loadImage("rat.jpg");
+  img5 = loadImage("Retry.png");
   sound = loadSound("voice.mp3");
   
 }
@@ -41,8 +43,15 @@ function draw() {
   }
   if (state === "true") {
     end();
+    time += 2000
+    sound.playMode("UntilDone");
     sound.play();
-    sound.stop();
+
+    if (millis() > 10000){
+      sound.stop();
+    }
+
+    
     startScreen();
   }
   
@@ -72,6 +81,9 @@ function mouse() {
   image(img2, x, y, 240, 240);
 
 }
+function retry() {
+  image(img5, 800, 870, 160, 160);
+}
 
 
 function start(){
@@ -95,22 +107,22 @@ function handlekeys() {
 }
 
 function mousePressed() {
-  if (state === "true" && mouseInsideRect(700, 1000, 400, 550)) {
+  if (state === "true" && mouseInsideRect(660, 960, 780, 930)) {
     state = "false";
   } 
 }
 
 function startScreen() {
-  if (mouseInsideRect(700, 1000, 400, 550)) {
+  if (mouseInsideRect(660, 960, 780, 930)) {
     fill("gray");
   }
   else {
-    fill("Red");
+    fill("white");
   }
-  rect(700, 400, 300, 150);
+  rect(660, 780, 300, 150);
   fill("white");
-  textSize(50);
-  text("Retry", 775, 490);
+  retry();
+ 
 }
 
 function mouseInsideRect(left, right, top, bottom) {
