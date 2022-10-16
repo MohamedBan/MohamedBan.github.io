@@ -42,13 +42,9 @@ function draw() {
   if (state === "true") {
     end();
     sound.play();
-    noLoop();
+    sound.stop();
+    startScreen();
   }
-  
-  
-  
-  
-  
   
   hit = collideRectRect(x , y, mouseSize, mouseSize, mouseX, mouseY, cheeseSize, cheeseSize);
 
@@ -57,14 +53,9 @@ function draw() {
     state = "true";
     
 
-  }
-
-  
-  
+  } 
 
 }
-
-
 
 
 function cheese(){
@@ -81,7 +72,6 @@ function mouse() {
   image(img2, x, y, 240, 240);
 
 }
-
 
 
 function start(){
@@ -102,6 +92,29 @@ function handlekeys() {
   if (keyIsDown(65)) {
     x -= mouseSpeed;
   }
+}
+
+function mousePressed() {
+  if (state === "true" && mouseInsideRect(700, 1000, 400, 550)) {
+    state = "false";
+  } 
+}
+
+function startScreen() {
+  if (mouseInsideRect(700, 1000, 400, 550)) {
+    fill("gray");
+  }
+  else {
+    fill("Red");
+  }
+  rect(700, 400, 300, 150);
+  fill("white");
+  textSize(50);
+  text("Retry", 775, 490);
+}
+
+function mouseInsideRect(left, right, top, bottom) {
+  return mouseX >= left && mouseX <= right && mouseY >= top && mouseY <= bottom;
 }
 
 
