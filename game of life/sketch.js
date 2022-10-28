@@ -1,9 +1,14 @@
-const ROWS = 180;
-const COLS = 180;
+const ROWS = 40;
+const COLS = 40;
 let grid;
 let cellWidth;
 let cellHeight;
-let autoplay = false;
+let autoPlay = false;
+let gosperGun;
+
+function preload() {
+  gosperGun = loadJSON("gosper.json");
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -14,7 +19,7 @@ function setup() {
 
 function draw() {
   background(220);
-  if (autoplay ){
+  if (autoPlay && frameCount % 3 === 0) {
     grid = takeTurn(grid);
   }
   displayGrid(grid);
@@ -27,8 +32,11 @@ function keyPressed() {
   if (key === " ") {
     grid = takeTurn(grid);
   }
-  if (key === "a"){
-    autoplay = !autoplay;
+  if (key === "a") {
+    autoPlay = !autoPlay;
+  }
+  if (key === "g") {
+    grid = gosperGun;
   }
 }
 
