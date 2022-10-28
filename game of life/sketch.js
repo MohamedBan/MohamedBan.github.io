@@ -1,8 +1,9 @@
-const ROWS = 40;
-const COLS = 40;
+const ROWS = 180;
+const COLS = 180;
 let grid;
 let cellWidth;
 let cellHeight;
+let autoplay = false;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -13,6 +14,9 @@ function setup() {
 
 function draw() {
   background(220);
+  if (autoplay ){
+    grid = takeTurn(grid);
+  }
   displayGrid(grid);
 }
 
@@ -22,6 +26,9 @@ function keyPressed() {
   }
   if (key === " ") {
     grid = takeTurn(grid);
+  }
+  if (key === "a"){
+    autoplay = !autoplay;
   }
 }
 
