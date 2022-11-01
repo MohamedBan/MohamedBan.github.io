@@ -5,7 +5,7 @@ let cellWidth;
 let cellHeight;
 let autoPlay = false;
 let gosperGun;
-let colorFiLL = "blue";
+let colorFiLL = "black";
 
 function preload() {
   gosperGun = loadJSON("gosper.json");
@@ -15,7 +15,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   cellWidth = width/COLS;
   cellHeight = height/ROWS;
-  grid = createRandom2dArray(COLS, ROWS);
+  grid = create2dArray(COLS, ROWS);
 }
 
 function draw() {
@@ -36,8 +36,31 @@ function keyPressed() {
   }
   if (key === "1") {
     colorFiLL = "red";
-    
   }
+  if (key === "2") {
+    colorFiLL = "orange";
+  }
+  if (key === "3") {
+    colorFiLL = "yellow";
+  }
+  if (key === "4") {
+    colorFiLL = "green";
+  }
+  if (key === "5") {
+    colorFiLL = "blue";
+  }
+  if (key === "6") {
+    colorFiLL = "purple";
+  }
+  if (key === "7") {
+    colorFiLL = "brown";
+  }
+  if (key === "8") {
+    colorFiLL = "black";
+  }
+  
+  
+
 }
 
 
@@ -48,6 +71,8 @@ function mousePressed() {
 
   if (grid[yPos][xPos] === 0) {
     grid[yPos][xPos] = 1;
+
+    
   }
   else if (grid[yPos][xPos] === 1) {
     grid[yPos][xPos] = 0;
@@ -79,18 +104,3 @@ function create2dArray(COLS, ROWS) {
   return emptyArray;
 }
 
-function createRandom2dArray(COLS, ROWS) {
-  let emptyArray = [];
-  for (let y=0; y<ROWS; y++) {
-    emptyArray.push([]);
-    for (let x=0; x<COLS; x++) {
-      if (random(100) < 50) {
-        emptyArray[y].push(0);
-      }
-      else {
-        emptyArray[y].push(1);
-      }
-    }
-  }
-  return emptyArray;
-}
