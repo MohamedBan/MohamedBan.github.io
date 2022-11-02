@@ -8,6 +8,8 @@ let playerY = 0;
 let stoneImg;
 let grassImg;
 let survivorImg;
+let knifeGif;
+let reloadGif;
 
 
 function setup() {
@@ -23,6 +25,8 @@ function preload(){
   stoneImg = loadImage("rock.png");
   grassImg = loadImage("grass.png");
   survivorImg = loadImage("survivor.png");
+  knifeGif = loadImage("knife.gif");
+  reloadGif = loadImage("reload.gif");
 }
 
 function draw() {
@@ -31,6 +35,9 @@ function draw() {
 }
 
 function keyPressed() {
+  if (keyCode === " "){
+    knifeGif.play();
+  }
   if (keyCode === RIGHT_ARROW) {
     if (grid[playerY][playerX+1] === 0) {
       //reset old location to white
