@@ -70,14 +70,40 @@ function mousePressed() {
   let yPos = Math.floor(mouseY/cellHeight);
 
   if (grid[yPos][xPos] === 0) {
-    grid[yPos][xPos] = 1;
+    if (colorFiLL === "red"){
+      grid[yPos][xPos] = 1;
+    }
+    if (colorFiLL === "orange"){
+      grid[yPos][xPos] = 2;
+    }
+    if (colorFiLL === "yellow"){
+      grid[yPos][xPos] = 3;
+    }
+    if (colorFiLL === "green"){
+      grid[yPos][xPos] = 4;
+    }
+    if (colorFiLL === "blue"){
+      grid[yPos][xPos] = 5;
+    }
+    if (colorFiLL === "purple"){
+      grid[yPos][xPos] = 6;
+    }
+    if (colorFiLL === "brown"){
+      grid[yPos][xPos] = 7;
+    }
+    if (colorFiLL === "black"){
+      grid[yPos][xPos] = 8;
+    }
 
     
   }
   else if (grid[yPos][xPos] === 1) {
     grid[yPos][xPos] = 0;
+    
   }
 }
+
+let colorObject = ["white", "red", "orange", "yellow", "green", "blue","purple", "brown", "black"  ];
 
 function displayGrid(grid) {
   for (let y=0; y<ROWS; y++) {
@@ -86,7 +112,25 @@ function displayGrid(grid) {
         fill("white");
       }
       else if (grid[y][x] === 1) {
-        fill(colorFiLL);
+        fill("red");
+      }
+      else if (grid[y][x] === 2) {
+        fill("orange");
+      }
+      else if (grid[y][x] === 4) {
+        fill("yellow");
+      }
+      else if (grid[y][x] === 5) {
+        fill("green");
+      }
+      else if (grid[y][x] === 6) {
+        fill("blue");
+      }
+      else if (grid[y][x] === 7) {
+        fill("purple");
+      }
+      else if (grid[y][x] === 8) {
+        fill("black");
       }
       rect(x*cellWidth, y*cellHeight, cellWidth, cellHeight);
     }
