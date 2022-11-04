@@ -1,21 +1,24 @@
-const ROWS = 40;
-const COLS = 40;
+const ROWS = 20;
+const COLS = 20;
 let grid;
+let grid2;
 let cellWidth;
 let cellHeight;
 let autoPlay = false;
-let gosperGun;
+let family;
 let colorFiLL = "black";
 
 function preload() {
-  gosperGun = loadJSON("gosper.json");
+  family = loadJSON("family.json");
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  cellWidth = width/COLS;
+  cellWidth = width/2/COLS;
   cellHeight = height/ROWS;
   grid = create2dArray(COLS, ROWS);
+  
+
 }
 
 function draw() {
@@ -31,8 +34,8 @@ function keyPressed() {
   if (key === "a") {
     autoPlay = !autoPlay;
   }
-  if (key === "g") {
-    grid = gosperGun;
+  if (key === "f") {
+    grid = family;
   }
   if (key === "1") {
     colorFiLL = "red";
@@ -101,6 +104,34 @@ function mousePressed() {
     grid[yPos][xPos] = 0;
     
   }
+  else if (grid[yPos][xPos] === 2) {
+    grid[yPos][xPos] = 0;
+    
+  }
+  else if (grid[yPos][xPos] === 3) {
+    grid[yPos][xPos] = 0;
+    
+  }
+  else if (grid[yPos][xPos] === 4) {
+    grid[yPos][xPos] = 0;
+    
+  }
+  else if (grid[yPos][xPos] === 5) {
+    grid[yPos][xPos] = 0;
+    
+  }
+  else if (grid[yPos][xPos] === 6) {
+    grid[yPos][xPos] = 0;
+    
+  }
+  else if (grid[yPos][xPos] === 7) {
+    grid[yPos][xPos] = 0;
+    
+  }
+  else if (grid[yPos][xPos] === 8) {
+    grid[yPos][xPos] = 0;
+    
+  }
 }
 
 let colorObject = ["white", "red", "orange", "yellow", "green", "blue","purple", "brown", "black"  ];
@@ -117,17 +148,20 @@ function displayGrid(grid) {
       else if (grid[y][x] === 2) {
         fill("orange");
       }
-      else if (grid[y][x] === 4) {
+      else if (grid[y][x] === 3) {
         fill("yellow");
       }
-      else if (grid[y][x] === 5) {
+      else if (grid[y][x] === 4) {
         fill("green");
       }
-      else if (grid[y][x] === 6) {
+      else if (grid[y][x] === 5) {
         fill("blue");
       }
-      else if (grid[y][x] === 7) {
+      else if (grid[y][x] === 6) {
         fill("purple");
+      }
+      else if (grid[y][x] === 7) {
+        fill("brown");
       }
       else if (grid[y][x] === 8) {
         fill("black");
@@ -147,4 +181,3 @@ function create2dArray(COLS, ROWS) {
   }
   return emptyArray;
 }
-
