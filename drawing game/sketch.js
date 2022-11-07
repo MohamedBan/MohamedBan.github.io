@@ -17,13 +17,15 @@ function setup() {
   cellWidth = width/2/COLS;
   cellHeight = height/ROWS;
   grid = create2dArray(COLS, ROWS);
+  grid2 = create2dArray(COLS, ROWS);
   
 
 }
 
 function draw() {
   background(220);
-  displayGrid(grid);
+  displayGrid1(grid);
+  displayGrid(grid2);
 }
 
 function keyPressed() {
@@ -100,73 +102,28 @@ function mousePressed() {
 
     
   }
-  else if (grid[yPos][xPos] === 1) {
-    grid[yPos][xPos] = 0;
-    
-  }
-  else if (grid[yPos][xPos] === 2) {
-    grid[yPos][xPos] = 0;
-    
-  }
-  else if (grid[yPos][xPos] === 3) {
-    grid[yPos][xPos] = 0;
-    
-  }
-  else if (grid[yPos][xPos] === 4) {
-    grid[yPos][xPos] = 0;
-    
-  }
-  else if (grid[yPos][xPos] === 5) {
-    grid[yPos][xPos] = 0;
-    
-  }
-  else if (grid[yPos][xPos] === 6) {
-    grid[yPos][xPos] = 0;
-    
-  }
-  else if (grid[yPos][xPos] === 7) {
-    grid[yPos][xPos] = 0;
-    
-  }
-  else if (grid[yPos][xPos] === 8) {
+  else if (grid[yPos][xPos] !== 0) {
     grid[yPos][xPos] = 0;
     
   }
 }
 
-let colorObject = ["white", "red", "orange", "yellow", "green", "blue","purple", "brown", "black"  ];
+let colorObject = ["white", "red", "orange", "yellow", "green", "blue","purple", "brown", "black"];
 
-function displayGrid(grid) {
+function displayGrid1(grid) {
   for (let y=0; y<ROWS; y++) {
     for (let x=0; x<COLS; x++) {
-      if (grid[y][x] === 0) {
-        fill("white");
-      }
-      else if (grid[y][x] === 1) {
-        fill("red");
-      }
-      else if (grid[y][x] === 2) {
-        fill("orange");
-      }
-      else if (grid[y][x] === 3) {
-        fill("yellow");
-      }
-      else if (grid[y][x] === 4) {
-        fill("green");
-      }
-      else if (grid[y][x] === 5) {
-        fill("blue");
-      }
-      else if (grid[y][x] === 6) {
-        fill("purple");
-      }
-      else if (grid[y][x] === 7) {
-        fill("brown");
-      }
-      else if (grid[y][x] === 8) {
-        fill("black");
-      }
+      fill(colorObject[grid[y][x]]);
       rect(x*cellWidth, y*cellHeight, cellWidth, cellHeight);
+    }
+  }
+}
+
+function displayGrid(){
+  for (let y=0; y<ROWS; y++) {
+    for (let x=0; x<COLS; x++) {
+      rect(x*cellWidth +width/2, y*cellHeight, cellWidth, cellHeight);
+
     }
   }
 }
