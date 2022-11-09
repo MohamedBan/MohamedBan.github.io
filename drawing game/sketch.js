@@ -6,7 +6,9 @@ let cellWidth;
 let cellHeight;
 let autoPlay = false;
 let family;
-let colorFiLL = "black";
+let colorFiLL = "white";
+
+
 
 let colorObject = ["white", "red", "orange", "yellow", "green", "blue","purple", "brown", "black"];
 
@@ -22,28 +24,36 @@ function setup() {
   imageGrid = create2dArray(COLS, ROWS);
   copyGrid = create2dArray(COLS, ROWS);
   
-
 }
 
 function draw() {
   background(255);
-  displayGrid1(family);
-  displayGrid(copyGrid);
+  displayGrid1(imageGrid);
+  displayGrid(family);
 }
 
 function keyPressed() {
   if (key === "e") {
-    copyGrid = create2dArray(COLS, ROWS);
+    imageGrid = create2dArray(COLS, ROWS);
+  }
+  if (key === "f") {
+    imageGrid = family;
+  }
+  if (key === "r") {
+    if (imageGrid === family){
+      alert("you win");
+    }
   }
 
   if (key === "a") {
     autoPlay = !autoPlay;
   }
-  if (key === "f") {
-    imageGrid = family;
-  }
+  
   if (!isNaN(key)) {
-    colorFiLL = colorObject[Number(key)];
+    if (Number(key) < 9){
+      colorFiLL = colorObject[Number(key)];
+    }
+
   }
   
   
@@ -56,15 +66,15 @@ function mousePressed() {
   let xPos = Math.floor(mouseX/cellWidth);
   let yPos = Math.floor(mouseY/cellHeight);
 
-  if (copyGrid[yPos][xPos] === 0) {
-    copyGrid[yPos][xPos] = colorObject.indexOf(colorFiLL);
+  if (imageGrid[yPos][xPos] === 0) {
+    imageGrid[yPos][xPos] = colorObject.indexOf(colorFiLL);
   }
 
 
  
   
-  else if (copyGrid[yPos][xPos] !== 0) {
-    copyGrid[yPos][xPos] = 0;
+  else if (imageGrid[yPos][xPos] !== 0) {
+    imageGrid[yPos][xPos] = 0;
     
   }
 }
@@ -99,3 +109,7 @@ function create2dArray(COLS, ROWS) {
   }
   return emptyArray;
 }
+
+
+
+
