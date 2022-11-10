@@ -1,3 +1,14 @@
+
+
+
+
+
+
+
+
+
+
+
 const ROWS = 20;
 const COLS = 20;
 let imageGrid;
@@ -7,6 +18,7 @@ let cellHeight;
 let autoPlay = false;
 let family;
 let colorFiLL = "white";
+let locked = true;
 
 
 
@@ -58,6 +70,17 @@ function keyPressed() {
   
   
 
+}
+
+function mouseDragged() {
+  let xPos = Math.floor(mouseX/cellWidth);
+  let yPos = Math.floor(mouseY/cellHeight);
+  if (locked) {
+    if (imageGrid[yPos][xPos] === 0) {
+      imageGrid[yPos][xPos] = colorObject.indexOf(colorFiLL);
+    }
+  }
+  
 }
 
 
