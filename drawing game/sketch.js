@@ -52,9 +52,7 @@ function keyPressed() {
     imageGrid = family;
   }
   if (key === "r") {
-    if (imageGrid === family){
-      alert("you win");
-    }
+    checkWin();
   }
 
   if (key === "a") {
@@ -133,6 +131,16 @@ function create2dArray(COLS, ROWS) {
   return emptyArray;
 }
 
+function checkWin(){
+  for(let i = 0; i < ROWS; i++){
+    for (let j = 0; j< COLS; j++){
+      if (family[i][j] === imageGrid[i][j]) {
+        alert("you win"); 
+      }
+    }
+  }
 
+  alert("you win"); 
+}
 
 
