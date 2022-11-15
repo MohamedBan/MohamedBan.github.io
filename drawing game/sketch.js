@@ -1,14 +1,11 @@
+// Drawing Game
+// Mohamed Banigesh
+// 11/15/2022
+//
+// Extra for Experts:
+// - Used a mouse Dragged Function to help draw faster
 
-
-
-
-
-
-
-
-
-
-
+//set variables
 const ROWS = 20;
 const COLS = 20;
 let imageGrid;
@@ -19,16 +16,15 @@ let autoPlay = false;
 let family;
 let colorFiLL = "white";
 let locked = true;
-
-
-
 let colorObject = ["white", "red", "orange", "yellow", "green", "blue","purple", "brown", "black"];
 
-
+//loads json file
 function preload() {
   family = loadJSON("family.json");
 }
 
+
+//seperates the two grids
 function setup() {
   createCanvas(windowWidth, windowHeight);
   cellWidth = width*0.45/COLS;
@@ -44,6 +40,8 @@ function draw() {
   displayGrid(family);
 }
 
+
+//buttons to make game easier
 function keyPressed() {
   if (key === "e") {
     imageGrid = create2dArray(COLS, ROWS);
@@ -70,6 +68,8 @@ function keyPressed() {
 
 }
 
+
+//adds color when you drag mouse
 function mouseDragged() {
   let xPos = Math.floor(mouseX/cellWidth);
   let yPos = Math.floor(mouseY/cellHeight);
@@ -82,7 +82,7 @@ function mouseDragged() {
 }
 
 
-
+//adds color where you press
 function mousePressed() {
   let xPos = Math.floor(mouseX/cellWidth);
   let yPos = Math.floor(mouseY/cellHeight);
@@ -100,7 +100,7 @@ function mousePressed() {
   }
 }
 
-
+//shows first grid
 function displayGrid1(imageGrid) {
   for (let y=0; y<ROWS; y++) {
     for (let x=0; x<COLS; x++) {
@@ -110,6 +110,8 @@ function displayGrid1(imageGrid) {
   }
 }
 
+
+//shows second grid
 function displayGrid(copyGrid){
   for (let y=0; y<ROWS; y++) {
     for (let x=0; x<COLS; x++) {
@@ -120,6 +122,8 @@ function displayGrid(copyGrid){
   }
 }
 
+
+//creates Array
 function create2dArray(COLS, ROWS) {
   let emptyArray = [];
   for (let y=0; y<ROWS; y++) {
@@ -131,11 +135,13 @@ function create2dArray(COLS, ROWS) {
   return emptyArray;
 }
 
+
+//checks Win
 function checkWin(){
   for(let i = 0; i < ROWS; i++){
     for (let j = 0; j< COLS; j++){
-      if (family[i][j] === imageGrid[i][j]) {
-        alert("you win"); 
+      if (family[i][j] !== imageGrid[i][j]) {
+        return; 
       }
     }
   }
