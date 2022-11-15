@@ -31,28 +31,38 @@ class Walker{
 }
 
 
-let michael;
-let katherine;
-let karar;
+
+let walkerArray= [];
 
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  michael = new Walker(width/2, height/2);
-  katherine = new Walker(200, 300);
-  katherine.color = "blue";
-  karar = new Walker(150, 150);
-  karar.color = "green";
+  spawnWalker();
 }
 
+
 function draw() {
-  michael.display();
-  katherine.display();
-  karar.display();
+  for(let i =0; i< walkerArray.length; i++){
+    walkerArray[i].display();
+    walkerArray[i].move();
+    
+  }
+  
+  
+  
+}
 
-  michael.move();
-  katherine.move();
-  karar.move();
+function spawnWalker(){
+  let michael = new Walker(random(width), random(height));
+  let someColor = color(random(255), random(255), random(255));
+  michael.color = someColor;
+  walkerArray.push(michael);
+
+  
+  
 
 
+}
+function keyPressed(){
+  spawnWalker();
 }
