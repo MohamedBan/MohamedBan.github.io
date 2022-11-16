@@ -1,3 +1,20 @@
+class Bullet{
+  constructor(x, y, bulletArr){
+    this.x = x;
+    this.y = y;
+    this.dx = 10;
+  }
+
+  move(){
+    this.x += this.dx;
+  }
+
+  display(){
+    image()
+  }
+}
+
+
 const ROWS = 40;
 const COLS = 40;
 let grid;
@@ -10,6 +27,8 @@ let grassImg;
 let survivorImg;
 let knifeGif;
 let reloadGif;
+let bullets;
+let muzzle;
 
 
 function setup() {
@@ -27,6 +46,8 @@ function preload(){
   survivorImg = loadImage("survivor.png");
   knifeGif = loadImage("knife.gif");
   reloadGif = loadImage("reload.gif");
+  bullets = loadImage("bullet.png");
+  muzzle = loadImage("muzzle.png");
 }
 
 function draw() {
