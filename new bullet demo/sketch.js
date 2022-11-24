@@ -24,10 +24,10 @@ class Bullet{
 
 let bulletArr = [];
 let rectangle = {
-  x: 100,
-  y: 100,
-  width: 100,
-  height: 100
+  x: 10,
+  y: 10,
+  width: 5,
+  height: 5
 
 };
 
