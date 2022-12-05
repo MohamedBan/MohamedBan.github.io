@@ -17,7 +17,7 @@ function draw() {
   }
 
   if (keyIsPressed){
-    startingLocation+= 5000;
+    startingLocation+= 100;
   }
 }
 
