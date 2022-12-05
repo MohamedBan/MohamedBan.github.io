@@ -8,6 +8,9 @@ function setup() {
   if(getItem("highscore") !== null){
     highestEver = getItem("highscore");
   }
+  else {
+    storeItem("highscore", 0);
+  }
 
 }
 
@@ -24,4 +27,8 @@ function draw() {
 
 function mousePressed(){
   numberofClicks++;
+
+  if (numberofClicks > getItem("highscore")){
+    storeItem("highscore", numberofClicksz)
+  }
 }
