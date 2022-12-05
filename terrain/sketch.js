@@ -7,7 +7,7 @@ let startingLocation = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  theHeights = generateHeights(20000);
+  theHeights = generateHeights(200000);
 }
 
 function draw() {
@@ -17,7 +17,7 @@ function draw() {
   }
 
   if (keyIsPressed){
-    startingLocation+= 100;
+    startingLocation+= 5000;
   }
 }
 
@@ -31,7 +31,7 @@ function generateHeights(howMany) {
   let time = random(10000);
   for (let i = 0; i < howMany; i++) {
     tempArray.push(noise(time) * height);
-    time += 0.001;
+    time += 0.00001;
   }
   return tempArray;
 }
