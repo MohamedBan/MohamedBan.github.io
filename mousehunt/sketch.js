@@ -54,9 +54,7 @@ function draw() {
   
   //if rect's hits end game
   hit = collideRectRect(x , y, mouseSize, mouseSize, mouseX, mouseY, cheeseSize, cheeseSize);
-  if (hit) {
-    state = "true";
-  } 
+  
 }
 
 //image of a cheese
